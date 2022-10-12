@@ -1,7 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\T3RXEA_HFT_2022231.Logic\T3RXEA_HFT_2022231.Logic.csproj" />
+    <ProjectReference Include="..\T3RXEA_HFT_2022231.Models\T3RXEA_HFT_2022231.Models.csproj" />
+    <ProjectReference Include="..\T3RXEA_HFT_2022231.Repository\T3RXEA_HFT_2022231.Repository.csproj" />
+  </ItemGroup>
 
 </Project>
