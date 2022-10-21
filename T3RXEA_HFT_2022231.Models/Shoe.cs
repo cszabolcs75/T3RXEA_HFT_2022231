@@ -20,11 +20,11 @@ namespace T3RXEA_HFT_2022231.Models
         [ForeignKey(nameof(Brand))]
         public int BrandId { get; set; }
         [ForeignKey(nameof(Sport))]
-        public string SportId { get; set; }
+        public int SportId { get; set; }
         [Required]
         public int Prize { get ; set; }
         [Required]
-        public int Size { get; set; }
+        public string  Name { get; set; }
         [NotMapped]
         [JsonIgnore]
         public virtual Brand brands { get; set; }

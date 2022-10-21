@@ -43,6 +43,15 @@ namespace T3RXEA_HFT_2022231.Repository
             {
                 entity.HasOne(sport => sport.sports).WithMany(brand => brand.brands).HasForeignKey(sport => sport.SuggestedSportId).OnDelete(DeleteBehavior.Cascade);
             });
+
+            Sport soccer = new Sport() { Id = 1, Description = "football", Inventor = "Unknown", IsOlimpic = true, Name = "Soccer" };
+            //3 sport
+
+            Brand nike = new Brand() { Id = 1, Name = "Nike", Owner = "Phil Knight", Manufacturer = "Nike.Inc", SuggestedSportId = 1 };
+            //9 brand
+
+            Shoe nike1 = new Shoe() { Id = 1, Prize = 12000, Name = "Nike Airmax", SportId = 1, BrandId = 1 };
+            //27 shoe
         }
     }
 }
