@@ -31,12 +31,12 @@ namespace T3RXEA_HFT_2022231.Repository
         {
             modelBuilder.Entity<Shoe>(entity =>
             {
-                entity.HasOne(brand => brand.brands).WithMany(shoes => shoes.shoes).HasForeignKey(brand=>brand.BrandId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(brand => brand.brands).WithMany(shoe => shoe.shoes).HasForeignKey(brand=>brand.BrandId).OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Shoe>(entity =>
             {
-                entity.HasOne(sport => sport.sports).WithMany(shoes => shoes.shoes).HasForeignKey(sport => sport.SportId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(sport => sport.sports).WithMany(shoe => shoe.shoes).HasForeignKey(sport => sport.SportId).OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Brand>(entity =>
