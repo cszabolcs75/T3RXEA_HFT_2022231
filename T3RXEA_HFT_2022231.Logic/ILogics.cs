@@ -38,7 +38,7 @@ namespace T3RXEA_HFT_2022231.Logic
 
         public IEnumerable<Shoe> LowerThan(int max);
 
-        public IEnumerable<Shoe> MadeBy(string brand_name);
+        public IEnumerable<Shoe> MadeBy(int brandid);
     }
 
     public interface ISportLogic
