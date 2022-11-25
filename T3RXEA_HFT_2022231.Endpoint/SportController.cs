@@ -5,7 +5,7 @@ using T3RXEA_HFT_2022231.Models;
 
 namespace T3RXEA_HFT_2022231.Endpoint
 {
-    [Route("[controller")]
+    [Route("[controller]")]
     [ApiController]
     public class SportController : ControllerBase
     {

@@ -36,31 +36,31 @@ namespace T3RXEA_HFT_2022231.Repository
 
             modelBuilder.Entity<Shoe>(entity =>
             {
-                entity.HasOne(sport => sport.sports).WithMany(shoe => shoe.shoes).HasForeignKey(sport => sport.SportId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(sport => sport.sports).WithMany(shoe => shoe.shoes).HasForeignKey(sport => sport.SportId).OnDelete(DeleteBehavior.ClientCascade);
             });
 
             modelBuilder.Entity<Brand>(entity =>
             {
-                entity.HasOne(sport => sport.sports).WithMany(brand => brand.brands).HasForeignKey(sport => sport.SuggestedSportId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(sport => sport.sports).WithMany(brand => brand.brands).HasForeignKey(sport => sport.SuggestedSportId).OnDelete(DeleteBehavior.ClientCascade);
             });
 
-            Sport soccer = new Sport() { Id = 1, Description = "football", Inventor = "Unknown", IsOlimpic = true, Name = "Soccer" };
-            Sport basketball = new Sport() { Id = 2, Description = "basketball", Inventor = "James Naismith", IsOlimpic = true, Name = "Basketball" };
+            Sport soccer = new Sport() { Id=1, Description = "football", Inventor = "Unknown", IsOlimpic = true, Name = "Soccer" };
+            Sport basketball = new Sport() { Id=2, Description = "basketball", Inventor = "James Naismith", IsOlimpic = true, Name = "Basketball" };
             Sport Handball = new Sport() { Id = 3, Description = "handball", Inventor = "Holger Nielson", IsOlimpic = true, Name = "Handball" };
             //3 sport
-
+            
             Brand nike = new Brand() { Id = 1, Name = "Nike", Owner = "Phil Knight", Manufacturer = "Nike.Inc", SuggestedSportId = 1 };
-            Brand adidas = new Brand() { Id = 2, Name = "Adidas", Owner = "Adolf Dassler", Manufacturer = "Adidas.Inc", SuggestedSportId = 2 };
-            Brand underarmor = new Brand() { Id = 3, Name = "Underarmor", Owner = "Kevin Plank", Manufacturer = "Underarmor.Inc", SuggestedSportId = 3 };
-            Brand puma = new Brand() { Id=4, Name="Puma", Owner= "Artemis S.A", Manufacturer="Puma.Inc", SuggestedSportId=4 };
-            Brand reebok = new Brand() { Id = 5, Name = "Reebok", Owner = "Joe and Jeff Foster", Manufacturer = "Reebok.Inc", SuggestedSportId = 5 };
-            Brand asics = new Brand() { Id = 6, Name = "ASICS", Owner = "Kihachiro Onitsuka", Manufacturer = "ASICS.Inc", SuggestedSportId = 6 };
-            Brand hummel = new Brand() { Id = 7, Name = "Hummel", Owner = "Thornico A/S", Manufacturer = "Hummel.Inc", SuggestedSportId = 7 };
-            Brand mizuno = new Brand() { Id = 8, Name = "Mizuno", Owner = "Rihachi Mizuno", Manufacturer = "Mizuno.Inc", SuggestedSportId = 8 };
-            Brand kempa = new Brand() { Id = 9, Name = "Kempa", Owner = "Bernhard Kempa", Manufacturer = "Kempa.Inc", SuggestedSportId = 9 };
+            Brand adidas = new Brand() { Id = 2, Name = "Adidas", Owner = "Adolf Dassler", Manufacturer = "Adidas.Inc", SuggestedSportId = 1 };
+            Brand underarmor = new Brand() { Id = 3, Name = "Underarmor", Owner = "Kevin Plank", Manufacturer = "Underarmor.Inc", SuggestedSportId = 1 };
+            Brand puma = new Brand() { Id=4, Name="Puma", Owner= "Artemis S.A", Manufacturer="Puma.Inc", SuggestedSportId=2};
+            Brand reebok = new Brand() { Id = 5, Name = "Reebok", Owner = "Joe and Jeff Foster", Manufacturer = "Reebok.Inc", SuggestedSportId = 2 };
+            Brand asics = new Brand() { Id = 6, Name = "ASICS", Owner = "Kihachiro Onitsuka", Manufacturer = "ASICS.Inc", SuggestedSportId = 2 };
+            Brand hummel = new Brand() { Id = 7, Name = "Hummel", Owner = "Thornico A/S", Manufacturer = "Hummel.Inc", SuggestedSportId = 3 };
+            Brand mizuno = new Brand() { Id = 8, Name = "Mizuno", Owner = "Rihachi Mizuno", Manufacturer = "Mizuno.Inc", SuggestedSportId = 3 };
+            Brand kempa = new Brand() { Id = 9, Name = "Kempa", Owner = "Bernhard Kempa", Manufacturer = "Kempa.Inc", SuggestedSportId = 3 };
 
             //9 brand
-
+            
             Shoe nike1 = new Shoe() { Id = 1, Prize = 12000, Name = "Nike Phantom GT2 Elite", SportId = 1, BrandId = 1 };
             Shoe nike2 = new Shoe() { Id = 2, Prize = 22000, Name = "Nike KD15", SportId = 2, BrandId = 1 };
             Shoe nike3 = new Shoe() { Id = 3, Prize = 41200, Name = "Nike Kyrie Infinity", SportId = 3, BrandId = 1 };
@@ -93,7 +93,7 @@ namespace T3RXEA_HFT_2022231.Repository
             modelBuilder.Entity<Sport>().HasData(soccer);
             modelBuilder.Entity<Sport>().HasData(basketball);
             modelBuilder.Entity<Sport>().HasData(Handball);
-
+            
             modelBuilder.Entity<Brand>().HasData(nike);
             modelBuilder.Entity<Brand>().HasData(adidas);
             modelBuilder.Entity<Brand>().HasData(underarmor);
@@ -131,7 +131,7 @@ namespace T3RXEA_HFT_2022231.Repository
             modelBuilder.Entity<Shoe>().HasData(mizuno3);
             modelBuilder.Entity<Shoe>().HasData(kempa1);
             modelBuilder.Entity<Shoe>().HasData(kempa2);
-            modelBuilder.Entity<Shoe>().HasData(kempa3);          
+            modelBuilder.Entity<Shoe>().HasData(kempa3);  
         }
     }
 }
