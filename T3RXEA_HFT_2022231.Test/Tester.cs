@@ -34,7 +34,22 @@ namespace T3RXEA_HFT_2022231.Test
             shl = new ShoeLogic(mockShoeRepository.Object);
             spl = new SportLogic(MockSportRepository.Object);
         }
-       
+        [TestCase(80, 1, null, "test", "test2")]
+        public void BrandCreateTest(int Id, int SuggestedSportId, string Name, string Manufacturer, string Owner)
+        {
+            Assert.That(() => bl.CreateBrand(Id, SuggestedSportId, Name, Manufacturer, Owner), Throws.TypeOf<ArgumentException>());
+        }
+        [TestCase(90, 1, 1, 10, null)]
+        public void CreateShoeTest(int Id, int BrandId, int SportId, int Prize, string Name)
+        {
+            Assert.That(() => shl.CreateShoe(Id, BrandId, SportId, Prize, Name), Throws.TypeOf<ArgumentException>());
+        }
+        [TestCase(100, null, "Test", true, "Test2")]
+        public void CreateSport(int Id, string Name, string Description, bool IsOlimpic, string Inventor)
+        {
+            Assert.That(() => spl.CreateSport(Id, Name, Description, IsOlimpic, Inventor), Throws.TypeOf<ArgumentException>());
+        }
+
 
     }
 }
