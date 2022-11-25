@@ -50,6 +50,36 @@ namespace T3RXEA_HFT_2022231.Test
             Assert.That(() => spl.CreateSport(Id, Name, Description, IsOlimpic, Inventor), Throws.TypeOf<ArgumentException>());
         }
 
+        [TestCase(1)]
+        public void SportIsTest(int sportid)
+        {
+            Assert.That(() => bl.SportIs(sportid).ToList().Count(), Is.EqualTo(1));
+        }
+
+        [TestCase("Somebody")]
+        public void OwnerIsTest(string owner_name)
+        {
+            Assert.That(() => bl.OwnerIs(owner_name).ToList().Count(), Is.EqualTo(0));
+        }
+        [TestCase(40)]
+        public void LowerThanTest(int max)
+        {
+            Assert.That(() => shl.LowerThan(max).ToList().Count(), Is.EqualTo(1));
+        }
+
+        [TestCase(1)]
+        public void MadeByTest(int brandid)
+        {
+            Assert.That(() => shl.MadeBy(brandid).ToList().Count(), Is.EqualTo(2));
+        }
+
+        [TestCase]
+        public void OlimpicSportTester()
+        {
+            Assert.That(() => spl.OlimpicSport().ToList().Count(), Is.EqualTo(1));
+        }
+
+        
 
     }
 }
