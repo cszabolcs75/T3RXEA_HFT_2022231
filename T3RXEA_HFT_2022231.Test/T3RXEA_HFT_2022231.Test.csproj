@@ -4,7 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+		<PackageReference Include="Moq" Version="4.16.1" />
+		<PackageReference Include="NUnit" Version="3.13.2" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
     <ProjectReference Include="..\T3RXEA_HFT_2022231.Logic\T3RXEA_HFT_2022231.Logic.csproj" />
     <ProjectReference Include="..\T3RXEA_HFT_2022231.Models\T3RXEA_HFT_2022231.Models.csproj" />
     <ProjectReference Include="..\T3RXEA_HFT_2022231.Repository\T3RXEA_HFT_2022231.Repository.csproj" />
