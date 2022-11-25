@@ -79,7 +79,17 @@ namespace T3RXEA_HFT_2022231.Test
             Assert.That(() => spl.OlimpicSport().ToList().Count(), Is.EqualTo(1));
         }
 
-        
+        [TestCase(8)]
+        public void SportDeleteTest(int id)
+        {
+            Assert.That(() => spl.DeleteSport(id), Throws.TypeOf<KeyNotFoundException>());
+        }
+        [TestCase(30, null, "Test", true, "Test2")]
+        public void UpdateSportTest(int Id, string Name, string Description, bool IsOlimpic, string Inventor)
+        {
+            Assert.That(() => spl.UpdateSport(Id, Name, Description, IsOlimpic, Inventor), Throws.TypeOf<ArgumentException>());
+        }
+
 
     }
 }
