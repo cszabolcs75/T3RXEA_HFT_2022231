@@ -47,7 +47,7 @@ namespace T3RXEA_HFT_2022231.Repository
             Sport soccer = new Sport() { Id=1, Description = "football", Inventor = "Unknown", IsOlimpic = true, Name = "Soccer" };
             Sport basketball = new Sport() { Id=2, Description = "basketball", Inventor = "James Naismith", IsOlimpic = true, Name = "Basketball" };
             Sport Handball = new Sport() { Id = 3, Description = "handball", Inventor = "Holger Nielson", IsOlimpic = true, Name = "Handball" };
-            //3 sport
+           
             
             Brand nike = new Brand() { Id = 1, Name = "Nike", Owner = "Phil Knight", Manufacturer = "Nike.Inc", SuggestedSportId = 1 };
             Brand adidas = new Brand() { Id = 2, Name = "Adidas", Owner = "Adolf Dassler", Manufacturer = "Adidas.Inc", SuggestedSportId = 1 };
@@ -59,7 +59,7 @@ namespace T3RXEA_HFT_2022231.Repository
             Brand mizuno = new Brand() { Id = 8, Name = "Mizuno", Owner = "Rihachi Mizuno", Manufacturer = "Mizuno.Inc", SuggestedSportId = 3 };
             Brand kempa = new Brand() { Id = 9, Name = "Kempa", Owner = "Bernhard Kempa", Manufacturer = "Kempa.Inc", SuggestedSportId = 3 };
 
-            //9 brand
+           
             
             Shoe nike1 = new Shoe() { Id = 1, Prize = 12000, Name = "Nike Phantom GT2 Elite", SportId = 1, BrandId = 1 };
             Shoe nike2 = new Shoe() { Id = 2, Prize = 22000, Name = "Nike KD15", SportId = 2, BrandId = 1 };
@@ -88,7 +88,7 @@ namespace T3RXEA_HFT_2022231.Repository
             Shoe kempa1 = new Shoe() { Id = 25, Prize = 66991, Name = "Kempa WING LITE 2.0", SportId = 1, BrandId = 9 };
             Shoe kempa3 = new Shoe() { Id = 27, Prize = 99331, Name = "Kempa ATTACK THREE 2.0", SportId = 2, BrandId = 9 };
             Shoe kempa2 = new Shoe() { Id = 26, Prize = 11668, Name = "Kempa Attack Contender", SportId = 3, BrandId = 9 };
-            //27 shoe 
+           
 
             modelBuilder.Entity<Sport>().HasData(soccer);
             modelBuilder.Entity<Sport>().HasData(basketball);

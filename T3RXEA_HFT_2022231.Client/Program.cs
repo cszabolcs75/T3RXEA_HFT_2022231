@@ -202,11 +202,11 @@ namespace T3RXEA_HFT_2022231.Client
                     #endregion
                     #region NON-CRUD 
                     case "NONCRUD":
-                        Console.WriteLine("1 - LowerThan");
-                        Console.WriteLine("2 - MadeBy");
-                        Console.WriteLine("3 - OlimpicSport");
-                        Console.WriteLine("4 - OwnerIs");
-                        Console.WriteLine("5 - SportIs");
+                        Console.WriteLine("1 - LowerThanTest");
+                        Console.WriteLine("2 - MadeByTest");
+                        Console.WriteLine("3 - OlimpicSportTest");
+                        Console.WriteLine("4 - OwnerIsTest");
+                        Console.WriteLine("5 - SportIsTest");
 
                         Console.Write("Select a function (number):");
                         int funcnumb = int.Parse(Console.ReadLine());
@@ -221,27 +221,28 @@ namespace T3RXEA_HFT_2022231.Client
                             case 1:
                                 Console.Write("Lower price:");
                                 int lowerprice = int.Parse(Console.ReadLine());
-                                var LowerThan = rest.Get<Shoe>("stat/LowerThan/?lowerprice=" + lowerprice);
+                                var LowerThanTest = rest.Get<Shoe>("stat/LowerThan/?lowerprice=" + lowerprice);
                                 Console.WriteLine("Shoes with lower price:");
-                                foreach (var item in LowerThan)
+                                foreach (var item in LowerThanTest)
                                 {
                                     Console.WriteLine($"BrandId :{item.BrandId}, SportId:{item.SportId}, Prize: {item.Prize}, Name: {item.Name}");
                                 }
                                 break;
                             case 2:
-                                Console.WriteLine("This shoe is made by:");
-                                var MadeBy = rest.Get<Shoe>("stat/MadeBy");
-                                foreach (var item in MadeBy)
+                                Console.WriteLine("This shoe is made by: ");
+                                int madeby = int.Parse(Console.ReadLine());
+                                var MadeByTest = rest.Get<Shoe>("stat/MadeBy/?madeby=" + madeby);
+                                Console.WriteLine("The following shoe is made by:");
+                                foreach (var item in MadeByTest)
                                 {
                                     Console.WriteLine($"BrandId :{item.BrandId}, SportId:{item.SportId}, Prize: {item.Prize}, Name: {item.Name}");
                                 }
                                 break;
                             case 3:
                                 Console.Write("Is this sport Olimpic? ");
-                                bool olimpic = bool.Parse(Console.ReadLine());
-                                var OlimpicSport = rest.Get<Sport>("stat/OlimpicSport/?olimpic=" + olimpic);
-                                Console.WriteLine("The following sport is Olimpic?:");
-                                foreach (var item in OlimpicSport)
+                                var OlimpicSportTest = rest.Get<Sport>("stat/OlimpicSport/");
+                                Console.WriteLine("The following sport is/is not Olimpic:");
+                                foreach (var item in OlimpicSportTest)
                                 {
                                     Console.WriteLine($"Name of sport: {item.Name}, Description: {item.Description}, Is Olimpic? {item.IsOlimpic}, Inventor: {item.Inventor}");
                                 }
@@ -249,23 +250,25 @@ namespace T3RXEA_HFT_2022231.Client
                             case 4:
                                 Console.Write("Owner of brand: ");
                                 string owner = Console.ReadLine();
-                                var OwnerIs = rest.Get<Brand>("stat/OwnerIs/?owner=" + owner);
+                                var OwnerIsTest = rest.Get<Brand>("stat/OwnerIs/?owner=" + owner);
                                 Console.WriteLine("The following owner of the brand:");
-                                foreach (var item in OwnerIs)
+                                foreach (var item in OwnerIsTest)
                                 {
                                     Console.WriteLine($"SuggestedSportId :{item.SuggestedSportId}, Name of the brand :{item.Name}, Manufacturer: {item.Manufacturer}, Owner: {item.Owner}");
                                 }
                                 break;
                             case 5:
                                 Console.WriteLine("Sport of brand:");
-                                string sport = Console.ReadLine();
-                                var SportIs = rest.Get<Brand>("stat/SportIs/?sport=" + sport);
+                                int sport = int.Parse(Console.ReadLine());
+                                var SportIsTest = rest.Get<Brand>("stat/SportIs/?sport=" + sport);
                                 Console.WriteLine($"The following sport of the brand  {sport}:");
-                                foreach (var item in SportIs)
+                                foreach (var item in SportIsTest)
                                 {
                                     Console.WriteLine($"SuggestedSportId :{item.SuggestedSportId}, Name of the brand :{item.Name}, Manufacturer: {item.Manufacturer}, Owner: {item.Owner}");
                                 }
                                 break;
+
+
                         }
                         break;
                         #endregion
