@@ -1,4 +1,5 @@
 ﻿using System;
+using T3RXEA_HFT_2022231.Models;
 
 namespace T3RXEA_HFT_2022231.Client
 {
@@ -6,7 +7,9 @@ namespace T3RXEA_HFT_2022231.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
+
+            ;
         }
     }
 }
