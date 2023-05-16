@@ -43,10 +43,6 @@ namespace T3RXEA_HFT_2022231.Client
             {
                 items = response.Content.ReadAsAsync<List<T>>().GetAwaiter().GetResult();
             }
-            else
-            {
-                throw new ArgumentException();
-            }
             return items;
         }
 
@@ -58,10 +54,6 @@ namespace T3RXEA_HFT_2022231.Client
             {
                 item = response.Content.ReadAsAsync<T>().GetAwaiter().GetResult();
             }
-            else
-            {
-                throw new ArgumentException();
-            }
             return item;
         }
 
@@ -72,10 +64,6 @@ namespace T3RXEA_HFT_2022231.Client
             if (response.IsSuccessStatusCode)
             {
                 item = response.Content.ReadAsAsync<T>().GetAwaiter().GetResult();
-            }
-            else
-            {
-                throw new ArgumentException();
             }
             return item;
         }
