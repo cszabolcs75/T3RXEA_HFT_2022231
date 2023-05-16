@@ -12,7 +12,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace GUIFeladat.WpfClient
 {
-    internal class ShoeWindowViewModel : ObservableRecipient
+    public class ShoeWindowViewModel : ObservableRecipient
     {
 
         public RestCollection<Shoe> Shoes { get; set; }

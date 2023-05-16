@@ -15,7 +15,7 @@ namespace GUIFeladat.WpfClient
 {
     public class MainWindowViewModel : ObservableRecipient
     {
-
+        public ICommand OpenBrandCommand { get; set; }
         public ICommand OpenShoeCommand { get; set; }
 
 
@@ -23,7 +23,12 @@ namespace GUIFeladat.WpfClient
         {
             if (!IsInDesignMode)
             {
-                
+
+                OpenBrandCommand = new RelayCommand(() =>
+                {
+                    BrandWindow brandWindow = new BrandWindow();
+                    brandWindow.ShowDialog();
+                });
 
                 OpenShoeCommand = new RelayCommand(() =>
                 {
