@@ -25,6 +25,9 @@ namespace T3RXEA_HFT_2022231.Endpoint
             services.AddTransient<IShoeRepository, ShoeRepository>();
             services.AddTransient<ISportLogic, SportLogic>();
             services.AddTransient<ISportRepository, SportRepository>();
+
+            services.AddSignalR();
+            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -40,6 +43,7 @@ namespace T3RXEA_HFT_2022231.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

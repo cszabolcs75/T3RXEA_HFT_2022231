@@ -6,7 +6,14 @@
         xmlns:local="clr-namespace:GUIFeladat.WpfClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid Margin="30">
+        <StackPanel >
 
+            <Button Height="50" Command="{Binding OpenShoeCommand}" Content="Shoes" Margin="0,0,0,30"></Button>
+        </StackPanel>
+        <Button Height="50" VerticalAlignment="Bottom" x:Name="btnQuit" Content="Quit" Click="btnQuit_Click"></Button>
     </Grid>
 </Window>

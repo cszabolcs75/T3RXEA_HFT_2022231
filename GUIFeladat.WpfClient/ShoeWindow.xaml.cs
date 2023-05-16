@@ -10,24 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUIFeladat.WpfClient
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ShoeWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ShoeWindow : Window
     {
-        public MainWindow()
+        public ShoeWindow()
         {
             InitializeComponent();
         }
 
-        private void btnQuit_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Environment.Exit(0);
+            Close();
         }
     }
 }
