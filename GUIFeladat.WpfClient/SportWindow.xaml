@@ -1,0 +1,49 @@
+﻿<Window x:Class="GUIFeladat.WpfClient.SportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUIFeladat.WpfClient"
+        mc:Ignorable="d"
+        Title="SportWindow" Height="750" Width="800">
+    <Window.DataContext>
+        <local:SportWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Sports}" SelectedItem="{Binding SelectedSport}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Foreground="blue" Content="Name:"></Label>
+                        <Label Content="{Binding Name}"></Label>
+                        <Label Foreground="green" Content="Description:"></Label>
+                        <Label Content="{Binding Description}"></Label>
+                        <Label Foreground="Pink" Content="Olimpic?"></Label>
+                        <Label Content="{Binding IsOlimpic}"/>
+                        <Label Foreground="red" Content="Inventor:"></Label>
+                        <Label Content="{Binding Inventor}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Name:" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedSport.Name}" Padding="10" Margin="0,0,0,0"/>
+            <Label Content="Description:" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedSport.Description}" Padding="10" Margin="0,0,0,0"/>
+            <Label Content="Olimpic?" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedSport.IsOlimpic}" Padding="10" Margin="0,0,0,0"/>
+            <Label Content="Inventor" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedSport.Inventor}" Padding="10" Margin="0,0,0,0"/>
+            <Button Content="Create Sport" Command="{Binding CreateSportCommand}" Margin="10" Padding="10"></Button>
+            <Button Content="Delete Sport" Command="{Binding DeleteSportCommand}" Margin="10" Padding="10"></Button>
+            <Button Content="Update Sport" Command="{Binding UpdateSportCommand}" Margin="10" Padding="10"></Button>
+        </StackPanel>
+        <Button Margin="10"  Grid.Column="1" Height="30" VerticalAlignment="Bottom" x:Name="btnBack" Content="Back" Click="btnBack_Click"></Button>
+
+    </Grid>
+</Window>

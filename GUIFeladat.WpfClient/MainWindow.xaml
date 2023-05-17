@@ -11,6 +11,7 @@
     </Window.DataContext>
     <Grid Margin="30">
         <StackPanel >
+            <Button Height="50" Command="{Binding OpenSportCommand}" Content="Sports" Margin="0,0,0,30"></Button>
             <Button Height="50" Command="{Binding OpenBrandCommand}" Content="Brands" Margin="0,0,0,30"></Button>
             <Button Height="50" Command="{Binding OpenShoeCommand}" Content="Shoes" Margin="0,0,0,30"></Button>
         </StackPanel>

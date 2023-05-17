@@ -17,12 +17,18 @@ namespace GUIFeladat.WpfClient
     {
         public ICommand OpenBrandCommand { get; set; }
         public ICommand OpenShoeCommand { get; set; }
+        public ICommand OpenSportCommand { get; set; }
 
 
         public MainWindowViewModel()
         {
             if (!IsInDesignMode)
             {
+                OpenSportCommand = new RelayCommand(() =>
+                {
+                    SportWindow sportWindow = new SportWindow();
+                    sportWindow.ShowDialog();
+                });
 
                 OpenBrandCommand = new RelayCommand(() =>
                 {
