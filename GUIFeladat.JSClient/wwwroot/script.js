@@ -18,20 +18,37 @@ function display() {
     document.getElementById('resultarea').innerHTML = "";
     shoes.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
-            "<tr><td>" + t.shoeId + "</td><td>"
-            + t.shoeName + "</td></tr>";
+            "<tr><td>" + t.Id + "</td><td>"
+        + t.Name + "</td><td>" +
+        `<button type="button" onclick="remove(${t.Id})">Delete</button>` +
+            "</td></tr>";
 
 
     });
 }
 
+function remove(id) {
+    fetch('http://localhost:2286/shoe/' + id, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', },
+        body: null
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error); });
+}
+
+
 function create() {
-    let name = document.getElementById('shoename').value;
+    let name = document.getElementById('name').value;
     fetch('http://localhost:2286/shoe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { shoeName: name })
+            { Name: name })
     })
         .then(response => response)
         .then(data => {
