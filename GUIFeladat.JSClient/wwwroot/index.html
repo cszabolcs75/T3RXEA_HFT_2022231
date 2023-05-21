@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Shoe UI</title>
+    <title>Sport UI</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -10,8 +10,26 @@
 
     <div id="formdiv">
         <label>Shoe Name</label>
-        <input type="text" id="name" />
+        <input type="text" id="shoename" />
+        <label>Shoe's BrandID</label>
+        <input type="text" id="shoebrand" />
+        <label>Shoe's SportID</label>
+        <input id="shoesport" type="text" /> 
+        <label>Shoe Price</label>
+        <input type="text" id="shoeprize" />
         <button type="button" onclick="create()">Add Shoe</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Shoe Name</label>
+        <input type="text" id="shoenametoupdate" />
+        <label>Shoe's BrandID</label>
+        <input type="text" id="shoebrandupdate" />
+        <label>Shoe's SportID</label>
+            <input id="shoesportupdate" type="text"/>        
+        <label>Shoe Price</label>
+        <input type="text" id="shoeprizeupdate" />
+        <button type="button" onclick="update()">Update Shoe</button>
     </div>
 
     <table>
@@ -19,13 +37,16 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>BrandID</th>
+                <th>SportID</th>
+                <th>Price</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody id="resultarea">
         </tbody>
     </table>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

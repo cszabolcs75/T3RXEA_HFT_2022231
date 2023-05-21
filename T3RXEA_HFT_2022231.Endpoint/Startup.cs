@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +18,7 @@ namespace T3RXEA_HFT_2022231.Endpoint
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+          
             services.AddTransient<ShoeManamegementDBContext, ShoeManamegementDBContext>();
             services.AddTransient<IBrandLogic, BrandLogic>();
             services.AddTransient<IBrandRepository, BrandRepository>();
@@ -37,7 +38,16 @@ namespace T3RXEA_HFT_2022231.Endpoint
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(x => x.AllowCredentials().AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:2286"));
+            app.UseExceptionHandler(c => c.Run(async context =>
+            {
+                var exception = context.Features
+                    .Get<IExceptionHandlerPathFeature>()
+                    .Error;
+                var response = new { msg = exception.Message };
+                await context.Response.WriteAsJsonAsync(response);
+            }));
+
+            app.UseCors(x => x.AllowCredentials().AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:25449"));
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
